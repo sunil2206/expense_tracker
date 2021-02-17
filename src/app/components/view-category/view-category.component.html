@@ -1,0 +1,90 @@
+<div class="card top col col-sm-12 mt-2">
+<div class="row d-flex justify-content-center mb-2">
+    <mat-form-field appearance="" style="width: 30%;">
+        <input class="" matInput [matDatepicker]="picker" [(value)]="todayVal" name="date" #date isHidden="true"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>
+<div class="row d-flex justify-content-center mt-2">
+    <span class="text">
+        <p class="amount">
+            <span class="float-left ml-2">₹</span>
+            {{amount}}
+            <span class="float-right mr-2" (click)="remove()"><i class="fas fa-backspace"></i></span>
+        </p>
+     </span>
+</div>
+<div class="row d-flex justify-content-center mt-2">
+
+    <mat-form-field >
+      <mat-label>Note</mat-label>
+      <input matInput type="text" name="note"  #note/>
+    </mat-form-field>
+
+</div>
+</div>
+<div class="card wrapper col col-sm-12 mt-2">
+    <div class="row">
+        <div class="category card col col-sm-3" (click)="enter('1')" >
+            <p>1</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="enter('2')" >
+            <p>2</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="enter('3')" >
+            <p>3</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="calc('+')" >
+            <p>+</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="category card col col-sm-3" (click)="enter('4')" >
+            <p>4</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="enter('5')">
+            <p>5</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="enter('6')" >
+            <p>6</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="calc('-')" >
+            <p>-</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="category bottom card col col-sm-3" (click)="enter('7')" >
+            <p>7</p>
+        </div>
+        <div class="category bottom card col col-sm-3" (click)="enter('8')" >
+            <p>8</p>
+        </div>
+        <div class="category bottom card col col-sm-3" (click)="enter('9')" >
+            <p>9</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="calc('*')" >
+            <p>*</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="category bottom card col col-sm-3" (click)="enter('.')" >
+            <p>.</p>
+        </div>
+        <div class="category bottom card col col-sm-3" (click)="enter('0')" >
+            <p>0</p>
+        </div>
+        <div class="category bottom card col col-sm-3" (click)="calc('=')" >
+            <p>=</p>
+        </div>
+        <div class="category card col col-sm-3" (click)="calc('/')" >
+            <p>/</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="category bottom card col col-sm-12" (click)="add(note)" >
+            <p>add</p>
+        </div>
+    </div>
+</div>
+

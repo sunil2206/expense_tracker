@@ -1,0 +1,44 @@
+.dot {
+    height: 25%;
+    width: 45%;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.myRow{
+    margin-top: 10px;
+    justify-content: center;
+}
+p{
+    margin-top: 6px;
+    font-size: 20px;
+}
+.text{
+    box-shadow: 2px 2px 5px #e0e0e0;
+    text-align: center;
+    height:35px;
+    border-radius: 5px;
+    background-color:#a8dadc;
+    width: 50%;
+}
+.square{
+    width: 50%;
+}
+.dot{
+    color: white;
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    background-color: #bbb;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #413d3d;
+}
+.dot:hover{
+    box-shadow: 2px 2px 10px #413d3d;
+}
+mat-spinner circle{
+  color: #fff59d;
+}

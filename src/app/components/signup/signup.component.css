@@ -1,0 +1,14 @@
+mat-card-content,mat-card-actions{
+    text-align: center;
+}
+.myLink{
+    text-align: left;
+}
+mat-toolbar{
+    background-color: #1d3557;
+    color:white;
+}
+.submit{
+    background-color: #1d3557;
+    color:white;
+}

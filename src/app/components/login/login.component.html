@@ -1,0 +1,55 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+      <span>
+          Expense Tracker
+      </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container d-flex justify-content-center" *ngIf="this.showError">
+  <div class="error col col-6 d-flex justify-content-center mt-2">
+    No Internet Connection
+  </div>
+</div>
+<div class="container d-flex justify-content-center" *ngIf="!this.showError">
+  <div class="col col-sm-10 col-md-6 col-lg-4 mt-5">
+    <form>
+      <mat-card >
+        <mat-card-header>
+          <div>
+            <mat-card-title>
+              Log in
+          </mat-card-title>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+          <mat-form-field>
+            <mat-label>
+              email
+            </mat-label>
+            <input matInput [(ngModel)]="email" name="email" type="email" placeholder="email" required/><br/> 
+            <mat-error>this field is required</mat-error>    
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+          <mat-label>
+            password
+          </mat-label>
+          <input name="password" [(ngModel)]="password" matInput type="password" placeholder="password" required/>
+          <mat-error>this field is required</mat-error> 
+        </mat-form-field>
+      </div>
+      <div *ngIf="userErr || passErr" class="alert alert-danger">
+        {{errMsg}}
+      </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="submit" mat-flat-button class="submit" (click)="signIn()">login</button>
+          <button type="reset" class="ml-2" mat-flat-button (click)="clear()">cancel</button>
+          <div class="mt-2 mb-2 myLink ml-2"><a routerLink="../signup">Don't have account?Register now...</a></div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>

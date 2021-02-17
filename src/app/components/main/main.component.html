@@ -1,0 +1,39 @@
+<app-category></app-category>
+<div class="row  mt-2">
+    <span class="icon" style="margin: 0 auto 0 20px;">
+        <i class="fas fa-bars fa-2x"></i>
+     </span>
+
+        <span class="text">
+            <p class="d-flex justify-content-center" *ngIf="!totalExpense"> <mat-spinner [diameter]="25"></mat-spinner></p>
+            <p *ngIf="totalExpense"> {{ totalExpense }}</p>
+         </span>
+
+    <span class="icon" style="margin: 0 20px 0 auto;">
+        <i class="fas fa-bars fa-2x"></i>
+     </span>
+</div>
+<div class="row mt-3">
+    <span class="square d-flex justify-content-center">
+        <span (click)="redirect('income')" class="dot d-flex justify-content-center" style="background-color:#457b9d ;">
+            <span style="margin: auto auto;">
+                <i class="fas fa-wallet fa-2x"></i>
+            </span>
+            <span style="margin: auto auto;">
+                <p style="font-size: smaller;"> Add Income</p>
+            </span>
+        </span>
+    </span>
+    <span class="square d-flex justify-content-center">
+        <span (click)="redirect('expenses')" class="dot d-flex justify-content-center" style="background-color:#e63946 ;">
+            <span style="margin: auto auto;">
+                <i class="fas fa-coins fa-2x"></i>
+            </span>
+            <span style="margin: auto auto;">
+                <p style="font-size: smaller;"> Add Expense</p>
+            </span>
+        </span>
+    </span>
+</div>
+<div>
+</div>

@@ -1,0 +1,33 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sideToggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="ml-2">
+            Expense Tracker
+        </span>
+        <span class="container mr-0">
+            <button class="float-right mt-2" mat-icon-button (click)="signOut()">
+                <mat-icon>power_settings_new</mat-icon>
+            </button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="isOpened">
+        <mat-list>
+            <mat-list-item (click)="sideToggle()"><a routerLink="main" routerLinkActive="actived">Dashboard</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="sideToggle()"><a routerLink="expenses" routerLinkActive="actived">Add Expenses</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="sideToggle()"><a routerLink="list" routerLinkActive="actived">View all Expenses</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="sideToggle()"><a routerLink="chat" routerLinkActive="actived">Chat</a></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-wrapper">
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

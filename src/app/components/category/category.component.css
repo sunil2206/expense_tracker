@@ -1,0 +1,37 @@
+.wrapper{
+   height:50%;
+   border: none;
+   box-shadow: 2px 2px 5px #eeeeee;
+}
+div.card :hover{
+    background-color: #e0e0e0;
+}
+.category{
+    border-left: none;
+    border-top: none;
+}
+.bottom{
+    border-bottom: none;
+}
+.row{
+    height:33.33%;
+}
+.myIcon{
+    margin-top: auto;
+    margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+mat-icon{
+    margin-top: auto;
+    margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+p{
+    font-size: small;
+    margin-top: 3px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

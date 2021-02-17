@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete</h1>
+<div mat-dialog-content>
+  <p>Are you sure?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onNoClick()">No,cancel</button>
+   <button mat-flat-button color="warn" (click)="deleteExpense()" cdkFocusInitial>yes</button>
+</div>

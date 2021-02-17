@@ -1,0 +1,30 @@
+.category{
+    font-size: x-large;
+    justify-content: left;
+}
+.date{
+    font-size: x-small;
+}
+.amount{
+    margin: 0 20px 0 auto;
+    font-size: x-large;
+}
+.icon{
+    margin: 0 20px 0 auto;
+}
+.myRow:nth-of-type(odd){
+    color: #457b9d;
+}
+.myRow:nth-of-type(even){
+    color: #e63946;
+}
+.card{
+    border-color:white;
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06);
+}
+mat-spinner {
+    color: #1d3557;
+}

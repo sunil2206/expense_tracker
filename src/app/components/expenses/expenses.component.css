@@ -1,0 +1,36 @@
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custCol{
+    width: 90%;
+}
+.custCol1{
+    width: 43%;
+}
+#add{
+    background-color: #457b9d;
+    color: white;
+}
+.category{
+  font-size: large;
+  justify-content: left;
+}
+
+.amount{
+  margin: 0 20px 0 auto;
+  font-size: large;
+}
+.icon{
+  margin: 0 20px 0 auto;
+}
+
+mat-spinner {
+  color: #1d3557;
+}
+.form-wrapper{
+  background: #fffffb;
+  border: 10px;
+  border-radius: 10px;
+}
+
