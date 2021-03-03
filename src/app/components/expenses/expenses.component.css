@@ -14,9 +14,12 @@ input::-webkit-inner-spin-button {
 }
 .category{
   font-size: large;
+  margin-left: 2%;
   justify-content: left;
 }
-
+.expense-header{
+  color: white;
+}
 .amount{
   margin: 0 20px 0 auto;
   font-size: large;
@@ -32,5 +35,15 @@ mat-spinner {
   background: #fffffb;
   border: 10px;
   border-radius: 10px;
+  height: 165pt;
+}
+.expense-wrapper{
+  background: #fffffb;
+  border: 10px;
+  border-radius: 10px;
+}
+.divider{
+  width: 90%;
+  margin-left: 5%;
 }
 

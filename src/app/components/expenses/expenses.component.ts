@@ -3,7 +3,7 @@ import { expense } from 'src/app/models/expense.model';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
-import {DeleteDialogComponent} from '../delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-expenses',

@@ -3,6 +3,7 @@ import { FireAuthService } from 'src/app/services/fire-auth.service';
 import { Router } from '@angular/router';
 import { user } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-signup',
@@ -17,6 +18,7 @@ export class SignupComponent implements OnInit {
   password: string;
   newUser = new user();
   emailErr = false;
+  passwordWarning: string;
   ngOnInit(): void {
   }
   signUp(){
@@ -35,6 +37,16 @@ export class SignupComponent implements OnInit {
       }
       console.log(data);
     });
+  }
+  voidWarning(){
+    this.passwordWarning = '';
+  }
+  viewPasswordWarning(): void{
+    if (this.password.length < 6){
+      this.passwordWarning = 'Password must be of minimum 6 characters !!!';
+    }else{
+      this.passwordWarning = '';
+    }
   }
   clear(){
     this.emailErr = false;

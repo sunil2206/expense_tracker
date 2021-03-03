@@ -15,6 +15,11 @@
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav mode="over" [(opened)]="isOpened">
+        <div class="header">
+          <img mat-card-avatar src="../../../assets/images/default-avatar.jpg" alt="User Avatar">
+          <h2 class="username-display"><i> Hello,{{ username }} !! </i></h2>
+        </div>
+
         <mat-list>
             <mat-list-item (click)="sideToggle()"><a routerLink="main" routerLinkActive="actived">Dashboard</a></mat-list-item>
             <mat-divider></mat-divider>
@@ -22,7 +27,6 @@
             <mat-divider></mat-divider>
             <mat-list-item (click)="sideToggle()"><a routerLink="list" routerLinkActive="actived">View all Expenses</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item (click)="sideToggle()"><a routerLink="chat" routerLinkActive="actived">Chat</a></mat-list-item>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content class="main-wrapper">

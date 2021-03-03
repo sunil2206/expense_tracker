@@ -3,9 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import { of } from 'rxjs';
 import {expense} from '../../models/expense.model';
 import { ExpenseService } from 'src/app/services/expense.service';
-import { resolve } from 'dns';
-import { rejects } from 'assert';
-
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-view-category',
@@ -19,7 +18,7 @@ export class ViewCategoryComponent implements OnInit {
 
   category;
   newExpense = new expense();
-  constructor(private router: ActivatedRoute,private expenseSer: ExpenseService) {
+  constructor(private router: ActivatedRoute, private matModal: MatDialog, private expenseSer: ExpenseService) {
     this.todayVal = new Date();
   }
   total: number;
@@ -85,6 +84,15 @@ export class ViewCategoryComponent implements OnInit {
     this.expenseSer.addExpense(this.newExpense).then( resolve => {
       this.amount = '';
       note.value = '';
+
+      const dialRef = this.matModal.open(SuccessDialogComponent, {
+        width: '95%'
+      });
+      dialRef.afterOpened().subscribe(_ => {
+        setTimeout(() => {
+          dialRef.close();
+        }, 500);
+      });
     });
   }
 }

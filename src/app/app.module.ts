@@ -25,10 +25,7 @@ import { SuccessDialogComponent } from './components/success-dialog/success-dial
 import { FirebaseImportsModule } from './firebase-imports.module';
 import { NotificationService } from './services/notification.service';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
-import {SocketService} from './services/socket.service';
-import { ChatComponent } from './components/chat/chat.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +40,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     IncomeComponent,
     DeleteDialogComponent,
     SuccessDialogComponent,
-    AddIncomeComponent,
-    ChatComponent
+    AddIncomeComponent
   ],
   imports: [
     MatcomponentsModule,
@@ -54,14 +50,13 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     BrowserAnimationsModule,
     FirebaseImportsModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config),
     ToastrModule.forRoot()
   ],
   entryComponents: [
     ListComponent,
     ExpensesComponent
   ],
-  providers: [NotificationService, SocketService],
+  providers: [NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

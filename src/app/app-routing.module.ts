@@ -9,7 +9,6 @@ import {MainComponent} from './components/main/main.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ViewCategoryComponent } from './components/view-category/view-category.component';
 import { ListComponent } from './components/list/list.component';
-import {ChatComponent} from './components/chat/chat.component';
 
 const routes: Routes = [];
 
@@ -33,10 +32,6 @@ const routes: Routes = [];
     children: [{
             path: 'main',
             component: MainComponent
-        },
-        {
-          path: 'chat',
-          component: ChatComponent
         },
         {
           path: 'list',

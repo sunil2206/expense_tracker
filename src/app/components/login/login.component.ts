@@ -30,15 +30,6 @@ export class LoginComponent implements OnInit {
     }else{
         this.showError = true;
     }
-    navigator.geolocation.getCurrentPosition(data => {
-      this.http.get(`https://api.opencagedata.com/geocode/v1/json?q=${data.coords.latitude}+${data.coords.longitude}&key=ba50e0f71ab94d94bb126d35f4a54da3`).subscribe(data=>{
-        this.location$  = data;
-        console.log(this.location$.results[0].formatted);
-      });
-      console.log('lat:: ' + data.coords.latitude + ' log:: ' + data.coords.longitude);
-    }, error => {
-      console.error(error.message);
-    })
   }
 
   signIn(){
