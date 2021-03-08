@@ -76,23 +76,29 @@ export class ViewCategoryComponent implements OnInit {
     }
   }
   add(note: HTMLInputElement){
-    this.newExpense.amount = +this.amount;
-    this.newExpense.date = this.todayVal.getDate() + '-' + (this.todayVal.getMonth()+1) + '-' + this.todayVal.getFullYear();
-    this.newExpense.category = this.category;
-    this.newExpense.note = note.value;
-    this.newExpense.key = sessionStorage.getItem('uid');
-    this.expenseSer.addExpense(this.newExpense).then( resolve => {
-      this.amount = '';
-      note.value = '';
 
-      const dialRef = this.matModal.open(SuccessDialogComponent, {
-        width: '95%'
+    this.newExpense.amount = +this.amount;
+    if (this.newExpense.amount < 0){
+      console.log('invalid amount');
+    }else{
+      this.newExpense.date = this.todayVal.getDate() + '-' + (this.todayVal.getMonth()+1) + '-' + this.todayVal.getFullYear();
+      this.newExpense.category = this.category;
+      this.newExpense.note = note.value;
+      this.newExpense.key = sessionStorage.getItem('uid');
+      this.expenseSer.addExpense(this.newExpense).then( resolve => {
+        this.amount = '';
+        note.value = '';
+
+        const dialRef = this.matModal.open(SuccessDialogComponent, {
+          width: '95%'
+        });
+        dialRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+            dialRef.close();
+          }, 500);
+        });
       });
-      dialRef.afterOpened().subscribe(_ => {
-        setTimeout(() => {
-          dialRef.close();
-        }, 500);
-      });
-    });
+    }
+
   }
 }

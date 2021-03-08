@@ -1,1 +1,67 @@
-<p>add-income works!</p>
+<div class="main-wrapper">
+  <div class="d-flex justify-content-start ml-1 mt-2 mb-1 expense-header">
+    Add Income
+  </div>
+  <form>
+    <div class="form-wrapper">
+      <div class="row d-flex justify-content-center mt-2">
+        <mat-form-field class="custCol" >
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" name="amount"  #amount required>
+        </mat-form-field>
+      </div>
+      <div class="row d-flex justify-content-center mb-0">
+        <mat-form-field class="custCol1 mr-3">
+          <mat-label>Select Category</mat-label>
+          <mat-select   [(value)]="category" required>
+            <mat-option>
+              Select Category
+            </mat-option>
+            <mat-option *ngFor="let category of incomesCat" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="custCol1">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(value)]="todayVal" [max]="todayVal" name="date" #date isHidden="true" required/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="row d-flex justify-content-center mb-0">
+        <mat-form-field class="custCol" >
+          <mat-label>Note</mat-label>
+          <input matInput type="text" name="note" #note required/>
+        </mat-form-field>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <button id="add" mat-raised-button (click)="add(note,amount)">Add</button>
+      </div>
+    </div>
+  </form>
+  <div class="d-flex justify-content-start ml-1 mt-2 mb-1 expense-header">
+    Recent Incomes
+  </div>
+
+  <div class="row d-flex justify-content-center mt-3" *ngIf="!incomes$">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+  <div class="expense-wrapper">
+
+    <mat-list class="row" *ngFor="let element of incomes$ ">
+
+      <mat-list-item>
+      <span class="category">
+        {{element.payload.val().category}}
+      </span>
+        <span class="amount d-flex justify-content-end">
+        ₹
+          {{element.payload.val().amount}}
+      </span>
+      </mat-list-item>
+      <mat-divider class="divider"></mat-divider>
+    </mat-list>
+  </div>
+
+</div>

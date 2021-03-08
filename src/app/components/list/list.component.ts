@@ -9,6 +9,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 
 export interface DialogData {
   lId: string;
+  type: string;
 }
 @Component({
   selector: 'app-list',
@@ -61,7 +62,7 @@ export class ListComponent implements OnInit {
   openDialog(varExpense): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
-      data: {lId: varExpense.key}
+      data: { lId: varExpense.key, type: 'Expense'}
     });
   }
 }

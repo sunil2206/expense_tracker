@@ -9,6 +9,8 @@ import {MainComponent} from './components/main/main.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ViewCategoryComponent } from './components/view-category/view-category.component';
 import { ListComponent } from './components/list/list.component';
+import { AddIncomeComponent } from './components/add-income/add-income.component';
+import { InListComponent } from './components/in-list/in-list.component';
 
 const routes: Routes = [];
 
@@ -38,9 +40,18 @@ const routes: Routes = [];
           component: ListComponent
         },
         {
+          path: 'incomeList',
+          component: InListComponent
+        },
+        {
             path: 'expenses',
             component: ExpensesComponent
-        }, {
+        },
+        {
+            path: 'income',
+            component: AddIncomeComponent
+        },
+        {
             path: 'viewCategory/:category',
             component: ViewCategoryComponent
         },

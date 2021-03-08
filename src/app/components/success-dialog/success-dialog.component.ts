@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '../expenses/expenses.component';
 
 @Component({
   selector: 'app-success-dialog',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./success-dialog.component.css']
 })
 export class SuccessDialogComponent implements OnInit {
-
-  constructor() { 
-    
+  message;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    this.message = this.data.mType;
   }
 
   ngOnInit(): void {

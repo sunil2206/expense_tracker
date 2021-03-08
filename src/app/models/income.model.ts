@@ -3,5 +3,5 @@ export class income{
     note: string;
     category: string;
     amount: number;
-    date: Date;
+    date: string;
 }

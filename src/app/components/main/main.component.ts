@@ -13,19 +13,21 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class MainComponent implements OnInit {
 
   totalExpense;
+  totalIncome;
   constructor(private router: Router, public exService: ExpenseService, private db: AngularFireDatabase) {
 
     let vUid = sessionStorage.getItem('uid');
 
     this.db.list('/expenses', ref => ref.orderByChild('key').equalTo(vUid)).valueChanges()
-        .subscribe( data => this.totalExpense = this.countTotalExpense(data));
-
+        .subscribe( data => this.totalExpense = this.countTotal(data));
+    this.db.list('/incomes', ref => ref.orderByChild('key').equalTo(vUid)).valueChanges()
+      .subscribe( data => this.totalIncome = this.countTotal(data));
    }
 
   ngOnInit(): void {
   }
 
-  countTotalExpense(data): number{
+  countTotal(data): number{
     let totalAmount = 0;
     for (let datas of data ) {
       totalAmount += datas.amount;
@@ -33,9 +35,6 @@ export class MainComponent implements OnInit {
     return totalAmount;
   }
 
-  getExpenseTotal(ref: any){
-    return ;
-  }
 
   redirect(vLink: string){
     this.router.navigate(['dashboard/' + vLink]);

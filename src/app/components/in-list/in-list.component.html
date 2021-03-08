@@ -1,0 +1,32 @@
+<div class="row d-flex justify-content-center mt-3" *ngIf="!incomes$">
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>
+<div class="myRow row mt-2 ml-1 mr-1" *ngFor="let element of incomes$ ">
+  <div class="card col col-sm-11" >
+                <span class="date">
+                        <i class="fas fa-calendar-alt"></i>
+                  <!-- {{element.date}} -->
+                  {{element.payload.val().date}}
+                </span>
+    <span class="row mt-1 mb-1 ml-1">
+                        <span class="category">
+                                <i [class]="icon(element.payload.val().category)"></i>
+                          {{element.payload.val().category}}
+                        </span>
+                        <span class="amount">
+                                ₹
+                          {{element.payload.val().amount}}
+                        </span>
+                </span>
+    <span class="row mt-1 mb-1 ml-1">
+                        <span class="note mb-1">
+                                <i class="fas fa-pen"></i>
+                          {{element.payload.val().note}}
+                        </span>
+                        <span class="icon" (click)="openDialog(element)">
+                                <i class="far fa-trash-alt"></i>
+                        </span>
+                </span>
+  </div>
+</div>
+

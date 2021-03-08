@@ -18,13 +18,14 @@ import { MainComponent } from './components/main/main.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ViewCategoryComponent } from './components/view-category/view-category.component';
 import { ListComponent } from './components/list/list.component';
-import { IncomeComponent } from './components/income/income.component';
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 import { FirebaseImportsModule } from './firebase-imports.module';
 import { NotificationService } from './services/notification.service';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
+import { InListComponent } from './components/in-list/in-list.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,11 @@ import { AddIncomeComponent } from './components/add-income/add-income.component
     ExpensesComponent,
     ViewCategoryComponent,
     ListComponent,
-    IncomeComponent,
     DeleteDialogComponent,
     SuccessDialogComponent,
-    AddIncomeComponent
+    AddIncomeComponent,
+    InListComponent,
+    ErrorDialogComponent
   ],
   imports: [
     MatcomponentsModule,

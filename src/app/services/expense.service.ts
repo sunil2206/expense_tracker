@@ -20,7 +20,7 @@ export class ExpenseService {
   }
 
   getExpense(uId){
-    return this.db.list('/expenses', ref => ref.orderByChild('key').equalTo(uId)).snapshotChanges();
+    return this.db.list('/expenses', ref => ref.orderByKey().equalTo(uId)).snapshotChanges();
   }
 
   delExpense(eId: string){

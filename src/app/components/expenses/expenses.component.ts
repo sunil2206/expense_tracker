@@ -3,20 +3,24 @@ import { expense } from 'src/app/models/expense.model';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
+export interface DialogData {
+  mType: string;
+}
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',
   styleUrls: ['./expenses.component.css']
 })
+
 export class ExpensesComponent implements OnInit {
   expensesCat = ['Grocery', 'Home', 'Entertainment', 'Car', 'Health', 'Gift', 'Eating Out', 'Bills', 'Transport'];
   selected: string;
   todayVal;
   category;
   newExpense = new expense();
-
+  minAmtErr = '';
   expense: expense;
   expenses$;
 
@@ -63,28 +67,39 @@ export class ExpensesComponent implements OnInit {
   }
   add(note: HTMLInputElement, amount: HTMLInputElement){
     this.newExpense.amount = +amount.value;
-    this.newExpense.date = this.todayVal.getDate() + '-' + (this.todayVal.getMonth() + 1) + '-' + this.todayVal.getFullYear();
-    this.newExpense.category = this.category;
-    this.newExpense.note = note.value;
-    this.newExpense.key = sessionStorage.getItem('uid');
-    // console.log(this.newExpense);
-    this.expenseSer.addExpense(this.newExpense).then( resolve => {
-      amount.value = '0';
-      note.value = '';
-      const dialRef = this.matModal.open(SuccessDialogComponent, {
-        width: '95%'
+    if (+amount.value < 0){
+      const dialogRef = this.matModal.open(ErrorDialogComponent,{
+        width: '95%',
+        data: { errMsg: 'Invalid amount !!!'}
       });
-      dialRef.afterOpened().subscribe(_ => {
+      dialogRef.afterOpened().subscribe( _ => {
         setTimeout(() => {
-          dialRef.close();
-        }, 500);
+          dialogRef.close();
+        }, 2000);
       });
-    });
-  }
-  openDialog(varExpense): void {
-    const dialogRef = this.matModal.open(DeleteDialogComponent, {
-      width: '250px',
-      data: {lId: varExpense.key}
-    });
+
+    }else{
+      this.minAmtErr = '';
+      this.newExpense.date = this.todayVal.getDate() + '-' + (this.todayVal.getMonth() + 1) + '-' + this.todayVal.getFullYear();
+      this.newExpense.category = this.category;
+      this.newExpense.note = note.value;
+      this.newExpense.key = sessionStorage.getItem('uid');
+      // console.log(this.newExpense);
+      this.expenseSer.addExpense(this.newExpense).then( resolve => {
+        amount.value = '0';
+        note.value = '';
+        const dialRef = this.matModal.open(SuccessDialogComponent, {
+          width: '95%',
+          data: { mType: 'Expense'}
+        });
+        dialRef.afterOpened().subscribe(_ => {
+          setTimeout(() => {
+            dialRef.close();
+          }, 500);
+        });
+      });
+    }
+
+
   }
 }

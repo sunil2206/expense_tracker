@@ -1,7 +1,7 @@
 <div class="card top col col-sm-12 mt-2">
 <div class="row d-flex justify-content-center mb-2">
     <mat-form-field appearance="" style="width: 30%;">
-        <input class="" matInput [matDatepicker]="picker" [(value)]="todayVal" name="date" #date isHidden="true"/>
+        <input class="" matInput [matDatepicker]="picker" [(value)]="todayVal" [max]="todayVal"  name="date" #date isHidden="true"/>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

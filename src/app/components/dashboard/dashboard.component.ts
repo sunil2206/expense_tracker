@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FireAuthService } from 'src/app/services/fire-auth.service';
-
 import { NotificationService } from '../../services/notification.service';
-import { UserService } from '../../services/user.service';
 import { ExpenseService } from '../../services/expense.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -15,6 +13,10 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class DashboardComponent implements OnInit {
   userObj;
+  isOpened: boolean;
+  message;
+  username;
+
   constructor(
     private fireSer: FireAuthService,
     private notificationSer: NotificationService,
@@ -26,9 +28,6 @@ export class DashboardComponent implements OnInit {
       .subscribe( data => this.getName(data) );
   }
 
-  isOpened: boolean;
-  message;
-  username;
   ngOnInit(): void {
     if (navigator.onLine){
       this.openSnackBar('Connected!!');
@@ -41,14 +40,17 @@ export class DashboardComponent implements OnInit {
     // this.notificationSer.receiveMessage();
     // this.message = this.notificationSer.currentMessage;
   }
+
   getName(data): void{
       this.username = data[0].name;
   }
+
   openSnackBar(message){
     this.matSnackBar.open(message, 'ok', {
       duration: 2000
     });
   }
+
   signOut(){
     this.fireSer.logOut();
   }
