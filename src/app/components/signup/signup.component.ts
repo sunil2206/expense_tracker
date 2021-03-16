@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
         this.newUser.name = this.name;
         this.newUser.email = this.email;
         this.newUser.key = sessionStorage.getItem('uid');
+        this.newUser.image = 'default-avatar.jpg';
         this.userSer.addUser(this.newUser);
 
         this.router.navigate(['login']);

@@ -5,12 +5,13 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RouteGuard } from './services/route-guard.service';
 import { FireAuthService } from './services/fire-auth.service';
-import {MainComponent} from './components/main/main.component';
+import { MainComponent } from './components/main/main.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ViewCategoryComponent } from './components/view-category/view-category.component';
 import { ListComponent } from './components/list/list.component';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
 import { InListComponent } from './components/in-list/in-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [];
 
@@ -46,6 +47,10 @@ const routes: Routes = [];
         {
             path: 'expenses',
             component: ExpensesComponent
+        },
+        {
+          path: 'user-profile',
+          component: ProfileComponent
         },
         {
             path: 'income',

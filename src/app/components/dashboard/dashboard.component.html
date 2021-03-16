@@ -15,10 +15,12 @@
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav mode="over" [(opened)]="isOpened">
+      <a routerLink="user-profile" (click)="sideToggle()" class="link-profile" routerLinkActive="actived">
         <div class="header">
-          <img mat-card-avatar src="../../../assets/images/default-avatar.jpg" alt="User Avatar">
+          <img mat-card-avatar [src]="imgUrl" alt="User Avatar">
           <h2 class="username-display"><i> Hello,{{ username }} !! </i></h2>
         </div>
+      </a>
 
         <mat-list>
             <mat-list-item (click)="sideToggle()"><a routerLink="main" routerLinkActive="actived">Dashboard</a></mat-list-item>

@@ -4,7 +4,7 @@ import { FireAuthService } from 'src/app/services/fire-auth.service';
 import { NotificationService } from '../../services/notification.service';
 import { ExpenseService } from '../../services/expense.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   isOpened: boolean;
   message;
   username;
+  imgUrl;
 
   constructor(
     private fireSer: FireAuthService,
@@ -25,7 +26,8 @@ export class DashboardComponent implements OnInit {
     ) {
     let vUid = sessionStorage.getItem('uid');
     this.db.list('/users', ref => ref.orderByChild('key').equalTo(vUid)).valueChanges()
-      .subscribe( data => this.getName(data) );
+      .subscribe( data => {this.getName(data); this.getImg(data); } );
+
   }
 
   ngOnInit(): void {
@@ -57,5 +59,20 @@ export class DashboardComponent implements OnInit {
 
   sideToggle(){
     this.isOpened === true ? this.isOpened = false : this.isOpened = true ;
+  }
+
+  async getImg(data){
+    let temp = await data[0].image;
+    let firStore = firebase.storage();
+    try{
+      let imgLink = await  firStore.ref(`/images/users/${ temp }`).getDownloadURL();
+      this.imgUrl = imgLink;
+    }
+    catch (e) {
+      if (e.code === 'storage/object-not-found'){
+        console.log('Image not found!!');
+      }
+    }
+
   }
 }

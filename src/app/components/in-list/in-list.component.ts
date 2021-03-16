@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {IncomeService} from '../../services/income.service';
-import {DeleteDialogComponent} from '../delete-dialog/delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { IncomeService } from '../../services/income.service';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { income } from 'src/app/models/income.model';
 
 @Component({

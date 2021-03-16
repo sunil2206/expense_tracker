@@ -26,6 +26,7 @@ import { FirebaseImportsModule } from './firebase-imports.module';
 import { NotificationService } from './services/notification.service';
 import { AddIncomeComponent } from './components/add-income/add-income.component';
 import { InListComponent } from './components/in-list/in-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { InListComponent } from './components/in-list/in-list.component';
     SuccessDialogComponent,
     AddIncomeComponent,
     InListComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    ProfileComponent
   ],
   imports: [
     MatcomponentsModule,
