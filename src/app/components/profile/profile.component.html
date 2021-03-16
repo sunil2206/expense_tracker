@@ -1,0 +1,13 @@
+<mat-card class="example-card mt-3">
+  <div class="d-flex justify-content-center">
+    <img mat-card-avatar [src]="fileName" #imgCtrl  class="img-thumbnail"  alt="Photo of a Shiba Inu">
+  </div>
+  <mat-card-content class="mt-2">
+    <input type="file" id="image" #imageUpload (change)="viewFile(imageUpload)">
+  </mat-card-content>
+  <mat-card-actions class="ml-1">
+    <button mat-raised-button color="primary" (click)="uploadImg(imageUpload)">Save</button>
+    <button mat-button>SHARE</button>
+</mat-card-actions>
+
+</mat-card>

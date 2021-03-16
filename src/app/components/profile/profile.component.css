@@ -1,0 +1,18 @@
+.profile{
+  background-color: white;
+}
+.img-thumbnail{
+  height: 120pt;
+  width: 120pt;
+}
+.img-icon{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: darkgrey;
+  margin-top: -10%;
+  margin-left: 60%;
+}
+.fas{
+  margin: auto 0;
+}
