@@ -4,10 +4,12 @@
   </div>
   <mat-card-content class="mt-2">
     <input type="file" id="image" #imageUpload (change)="viewFile(imageUpload)">
+
   </mat-card-content>
+
   <mat-card-actions class="ml-1">
     <button mat-raised-button color="primary" (click)="uploadImg(imageUpload)">Save</button>
     <button mat-button>SHARE</button>
-</mat-card-actions>
+  </mat-card-actions>
 
 </mat-card>

@@ -5,8 +5,8 @@
      </span>
 
         <span class="text">
-            <p class="d-flex justify-content-center" *ngIf="!totalExpense && !totalIncome"> <mat-spinner [diameter]="25"></mat-spinner></p>
-            <p *ngIf="totalExpense"> {{ totalIncome - totalExpense }}</p>
+            <p class="d-flex justify-content-center" *ngIf="totalExpense == null && totalIncome == null "> <mat-spinner [diameter]="25"></mat-spinner></p>
+            <p *ngIf="totalExpense != null && totalIncome != null"> {{ totalIncome - totalExpense }}</p>
          </span>
 
     <span class="icon" style="margin: 0 20px 0 auto;">

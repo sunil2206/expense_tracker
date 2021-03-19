@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -19,9 +18,27 @@ export class MainComponent implements OnInit {
     let vUid = sessionStorage.getItem('uid');
 
     this.db.list('/expenses', ref => ref.orderByChild('key').equalTo(vUid)).valueChanges()
-        .subscribe( data => this.totalExpense = this.countTotal(data));
+        .subscribe( data => {
+
+          setTimeout(() => {
+            if (!data){
+              this.totalExpense = 0;
+            }else{
+              this.totalExpense = this.countTotal(data);
+            }
+            console.log('expense :: ', this.totalExpense);
+          }, 8000);
+        });
     this.db.list('/incomes', ref => ref.orderByChild('key').equalTo(vUid)).valueChanges()
-      .subscribe( data => this.totalIncome = this.countTotal(data));
+      .subscribe( data => {
+        setTimeout(() => {
+          if (!data) {
+            this.totalIncome = 0;
+          }else{
+            this.totalIncome = this.countTotal(data);
+          }
+        }, 8000);
+      });
    }
 
   ngOnInit(): void {

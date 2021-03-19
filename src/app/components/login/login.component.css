@@ -11,6 +11,14 @@ mat-toolbar{
 .submit{
     background-color: #1d3557;
     color:white;
+    border-radius: 40em;
+    width: 50%;
+}
+.signUp{
+    background-color: white;
+    color: #1d3557;
+    width: 25%;
+    border-radius: 40em;
 }
 .error{
     background-color: #e6e6e6;

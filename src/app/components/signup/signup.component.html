@@ -50,9 +50,10 @@
         </div>
           </mat-card-content>
           <mat-card-actions>
-            <button type="submit" mat-flat-button class="submit" (click)="signUp()">Sign up</button>
-            <button type="reset" mat-flat-button class="ml-2" (click)="clear()">cancel</button>
-            <div class="mt-2 mb-2 myLink ml-2"><a routerLink="../login">Already have account?log in now...</a></div>
+            <button type="submit" mat-raised-button class="submit" (click)="signUp()">Sign up</button>
+            <hr>
+            <h4>Already have account?</h4>
+            <a routerLink="../login"><button type="submit" mat-raised-button class="logIn">Log In</button></a>
           </mat-card-actions>
         </mat-card>
       </form>

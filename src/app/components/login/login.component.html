@@ -6,7 +6,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container d-flex justify-content-center" *ngIf="this.showError">
-  <div class="error col col-6 d-flex justify-content-center mt-2">
+  <div class="error col col-8 d-flex justify-content-center mt-2">
     No Internet Connection
   </div>
 </div>
@@ -18,7 +18,7 @@
           <div>
             <mat-card-title>
               Log in
-          </mat-card-title>
+            </mat-card-title>
           </div>
         </mat-card-header>
         <mat-card-content>
@@ -27,8 +27,8 @@
             <mat-label>
               email
             </mat-label>
-            <input matInput [(ngModel)]="email" name="email" type="email" placeholder="email" required/><br/> 
-            <mat-error>this field is required</mat-error>    
+            <input matInput [(ngModel)]="email" name="email" type="email" placeholder="email" required/><br/>
+            <mat-error>this field is required</mat-error>
         </mat-form-field>
         </div>
         <div>
@@ -37,7 +37,7 @@
             password
           </mat-label>
           <input name="password" [(ngModel)]="password" matInput type="password" placeholder="password" required/>
-          <mat-error>this field is required</mat-error> 
+          <mat-error>this field is required</mat-error>
         </mat-form-field>
       </div>
       <div *ngIf="userErr || passErr" class="alert alert-danger">
@@ -45,9 +45,11 @@
       </div>
         </mat-card-content>
         <mat-card-actions>
-          <button type="submit" mat-flat-button class="submit" (click)="signIn()">login</button>
-          <button type="reset" class="ml-2" mat-flat-button (click)="clear()">cancel</button>
-          <div class="mt-2 mb-2 myLink ml-2"><a routerLink="../signup">Don't have account?Register now...</a></div>
+          <button type="submit" mat-raised-button class="submit" (click)="signIn()">login</button>
+          <div class="mt-2 mb-2 d-flex justify-content-end myLink ml-2"><a routerLink="../signup">Forget password</a></div>
+          <hr>
+          <h4>New user?</h4>
+          <a routerLink="../signup"><button type="submit" mat-raised-button class="signUp" >Sign up</button></a>
         </mat-card-actions>
       </mat-card>
     </form>

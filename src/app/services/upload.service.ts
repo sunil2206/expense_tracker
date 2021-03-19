@@ -12,17 +12,17 @@ export class UploadService {
 
   upload(imgUpload: HTMLInputElement, strLink: string){
     this.uploadTask = this.storageRef.child(`images/users/${imgUpload.files[0].name}`).put(imgUpload.files[0]);
+
     this.uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED , ( snapshot) => {
-      console.log('uploading :: ' + snapshot.bytesTransferred / snapshot.totalBytes * 100);
-    }, ( err ) => {
-      console.log( 'error occured :: ' + err.message[0] );
-    }, ( ) => {
-      this.uploadTask.snapshot.ref.getDownloadURL().then(( downloadUrl) => {
-        console.log('Download the image => ' + downloadUrl);
+        const uploadStatus = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+      }, ( err ) => {
+        console.log( 'error occured :: ' + err.message[0] );
+      }, ( ) => {
+        this.uploadTask.snapshot.ref.getDownloadURL().then(( downloadUrl) => {
         strLink = downloadUrl;
       });
-      console.log('File uploaded successfully!!!');
-    } );
+        console.log('File uploaded successfully!!!');
+    });
   }
 
   getUrl(path: string, imgId: string, imgCtr: HTMLImageElement){

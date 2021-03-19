@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   fileName1;
   path = 'images/users/';
   imgId: string;
+  uploadStatus: number;
   private vUid;
 
   constructor(private upSer: UploadService , private db: AngularFireDatabase, private userSer: UserService) {
@@ -46,8 +47,8 @@ export class ProfileComponent implements OnInit {
   uploadImg(img: HTMLInputElement){
     this.upSer.upload(img, this.fileName1);
     this.userSer.updateImg(this.vUid, img.files.item(0).name);
+    // this.uploadStatus = 0;
   }
-
 
   viewFile(imgUpload: HTMLInputElement){
     console.log('File :: ' + imgUpload.files.item(0).name);
